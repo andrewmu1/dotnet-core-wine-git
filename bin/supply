@@ -14,6 +14,7 @@ echo "-----> Running go build supply"
 pushd $BUILDPACK_DIR
 GOROOT=$GoInstallDir $GoInstallDir/bin/go build -mod=vendor -o $output_dir/supply ./src/dotnetcore/supply/cli
 popd
+sudo apt-get update
 sudo apt-get install wine64
 sudo apt-get install git
 $output_dir/supply "$BUILD_DIR" "$CACHE_DIR" "$DEPS_DIR" "$DEPS_IDX"
