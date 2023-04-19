@@ -15,6 +15,8 @@ pushd $BUILDPACK_DIR
 GOROOT=$GoInstallDir $GoInstallDir/bin/go build -mod=vendor -o $output_dir/supply ./src/dotnetcore/supply/cli
 popd
 sudo apt-get update
-sudo apt-get install wine64
 sudo apt-get install git
+echo "downloaded git"
+sudo apt-get install wine64
+echo "downloaded wine"
 $output_dir/supply "$BUILD_DIR" "$CACHE_DIR" "$DEPS_DIR" "$DEPS_IDX"
